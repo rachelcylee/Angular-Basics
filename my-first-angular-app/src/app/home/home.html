@@ -13,7 +13,10 @@
     </form>
   </section>
   <section class="result">
-    <app-housing-location/>
+    @for (housingLocation of housingLocationList; track $index){ <!--for loop to iterate over the list, track the index(or track housingLocation.id) to dom manipulation/ -->
+        <app-housing-location [housingLocation]="housingLocation"/>
+    }
+   
   </section>
 </body>
 </html>
