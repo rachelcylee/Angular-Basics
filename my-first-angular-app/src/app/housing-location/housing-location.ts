@@ -4,7 +4,7 @@ import { HousingLocationInfo } from '../housinglocation';
   selector: 'app-housing-location',
   imports: [],
   templateUrl: './housing-location.html',
-  styleUrl: './housing-location.css',
+  styleUrls: ['./housing-location.css'],
 })
 export class HousingLocation {
   //using signal to pass the housing location info to the component

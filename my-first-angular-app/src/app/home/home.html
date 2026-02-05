@@ -1,22 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-  <section>
+ <section>
     <form>
-        <input type="text" placeholder="Filter"/>
-        <button class="primary" type="button">Search</button>
+      <input type="text" placeholder="Filter by city" />
+      <button class="primary" type="button">Search</button>
     </form>
   </section>
-  <section class="result">
-    @for (housingLocation of housingLocationList; track $index){ <!--for loop to iterate over the list, track the index(or track housingLocation.id) to dom manipulation/ -->
-        <app-housing-location [housingLocation]="housingLocation"/>
+  <section class="results">
+    @for (housingLocation of housingLocationList; track $index) {
+      <app-housing-location [housingLocation]="housingLocation" />
     }
-   
   </section>
-</body>
-</html>
