@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { HousingService } from '../housing.service';
@@ -11,6 +11,8 @@ import { HousingLocationInfo } from '../housinglocation';
   styleUrls: ['./details.css'],
 })
 export class Details {
+  private readonly changeDetectorRef = inject(ChangeDetectorRef);
+
   // ActivatedRoute: Provides access to info about the current route, such as route param, url data
   route: ActivatedRoute = inject(ActivatedRoute);
   housingService = inject(HousingService);
@@ -24,8 +26,13 @@ export class Details {
 
   constructor() {
     // snapshot provides the current route state at component creation
-    const housingLocationId = Number(this.route.snapshot.params['id']);
-    this.housingLocation = this.housingService.getHousingLocationById(housingLocationId);
+    const housingLocationId = parseInt(this.route.snapshot.params['id'], 10);
+    this.housingService
+      .getHousingLocationById(housingLocationId)
+      .then((housingLocation) => {
+        this.housingLocation = housingLocation;
+        this.changeDetectorRef.markForCheck();
+      });
   }
   submitApplication() {
     this.housingService.submitApplication(
