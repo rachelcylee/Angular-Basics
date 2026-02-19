@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+/* Remove default margin */
+body {
+    margin: 0;
+  }
+  
+  /* Full height layout */
+  html, body {
+    height: 100%;
+  }
+  
+  /* Set default font */
+  body {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+  }
+  
