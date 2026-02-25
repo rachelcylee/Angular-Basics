@@ -1,0 +1,11 @@
+@if (task()) {
+  <mat-card class="item" (dblclick)="edit.emit(task()!)">
+    <h2>{{ task()!.title }}</h2>
+    <p>
+      {{ task()?.descripton }}
+    </p>
+    <button (click)="delete.emit(task()!)" mat-fab color="primary" aria-label="Delete">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-card>
+}

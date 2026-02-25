@@ -1,0 +1,12 @@
+<div class="color-container" [ngStyle]="{ 'background-color': currentBgColor }">
+  <input type="text" [formControl]="colorInput" class="color-input" />
+  @if (currentBgColor === '#ffffff') {
+    <p class="status" style="color: black">
+      current color: <strong>{{ currentBgColor }}</strong>
+    </p>
+  } @else {
+    <p class="status" style="color: #ffffff">
+      current color: <strong>{{ currentBgColor }}</strong>
+    </p>
+  }
+</div>

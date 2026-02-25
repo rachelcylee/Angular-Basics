@@ -1,0 +1,94 @@
+<p>tasks works!</p>
+<div class="box">
+  <mat-card-content>
+    <form class="my-form" [formGroup]="addTaskForm" (ngSubmit)="onSubmit()">
+      <mat-form-field class="full-width">
+        <mat-label>title</mat-label>
+        <input
+          matInput
+          placeholder="title"
+          name="title"
+          id="title"
+          formControlName="title"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>description</mat-label>
+        <input
+          matInput
+          placeholder="description"
+          name="description"
+          id="description"
+          formControlName="description"
+          required
+        />
+      </mat-form-field>
+      <mat-card-actions>
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          type="submit"
+          class="buttonSubmit"
+          [disabled]="addTaskForm.invalid"
+        >
+          Add Task
+        </button>
+      </mat-card-actions>
+      @if (showMessage) {
+        <div>
+          <h3 style="color: blue">task added</h3>
+        </div>
+      }
+    </form>
+  </mat-card-content>
+</div>
+<!-- <div class="content-wrapper">
+  <div class="container-wrapper">
+    <div class="container">
+      <h2>Backlog</h2>
+      <mat-card
+        cdkDropList
+        id="todo"
+        #todoList="cdkDropList"
+        [cdkDropListData]="todo"
+        [cdkDropListConnectedTo]="[doneList, inProgressList]"
+        (cdkDropListDropped)="drop($event)"
+        class="list"
+      >
+        @if (todo.length === 0) {
+          <p class="empty-label">Empty list</p>
+        }
+        @for(task of todo){<app-task
+          (delete)="deleteIt('todo', $event)"
+          (edit)="editTask('todo', $event)"
+          cdkDrag
+          (task)="(task)"
+        ></app-task>}
+      </mat-card>
+      </div>
+      <div class="container">
+        <h2>In progress</h2>
+
+        <mat-card
+          cdkDropListid="inProgress"
+          #inProgressList="cdkDropList"
+          [cdkDropListData]="inProgress"
+          [cdkDropListConnectedTo]="[todoList, doneList]"
+          (cdkDropListDropped)="drop($event)"
+          class="list"
+        >
+          @if (inProgress.length === 0) {
+            <p class="empty-label">Empty list</p>
+          }
+          <app-task
+            (delete)="deleteIt('inProgress', $event)"
+            (edit)="editTask('inProgress', $event)"
+            cdkDrag[task]="task"
+          ></app-task>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div> -->
