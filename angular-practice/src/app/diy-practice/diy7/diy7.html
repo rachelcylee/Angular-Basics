@@ -1,0 +1,17 @@
+<hr />
+<div class="user-form">
+  First Name: <br />
+  <input type="text" [(ngModel)]="userInfo.fName" minlength="2" />
+  <br />
+  Last Name: <br />
+  <input type="text" [(ngModel)]="userInfo.lName" minlength="2" />
+  <br />
+  Country: <br />
+  <input type="text" [(ngModel)]="userInfo.country" minlength="5" />
+  <br />
+  Note: <br />
+  <input type="text" [(ngModel)]="userInfo.note" minlength="10" />
+  <br />
+  <button [disabled]="isInvalid()" (click)="formSubmit()">submit</button>
+  <button (click)="formReset()">reset</button>
+</div>

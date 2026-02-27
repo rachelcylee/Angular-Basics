@@ -1,0 +1,9 @@
+<div class="register-form">
+  user name: <input type="text" [(ngModel)]="userData.userName" />
+  <br />
+  user password: <input type="password" [(ngModel)]="userData.userPassword" />
+  <br />
+  Secret code:
+  <input type="password" [(ngModel)]="userData.secretCode" />
+  <button (click)="saveUser()">submit</button>
+</div>
